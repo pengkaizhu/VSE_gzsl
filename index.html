@@ -1,1 +1,678 @@
-<h1>Hello!</h1>
+<!DOCTYPE html>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script type="text/javascript">google.load("jquery", "1.3.2");</script>
+
+<style type="text/css">
+	body {
+		font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+		font-weight:300;
+		font-size:17px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 1100px;
+	}
+
+	h1 {
+		font-weight:300;
+        font-size: 30px;
+	}
+
+	.disclaimerbox {
+		background-color: #eee;
+		border: 1px solid #eeeeee;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+		padding: 20px;
+	}
+
+	video.header-vid {
+		height: 140px;
+		border: 1px solid black;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+
+	img.header-img {
+		height: 140px;
+		border: 1px solid black;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+
+	img.rounded {
+		border: 1px solid #eeeeee;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+
+	a:link,a:visited
+	{
+		color: #1367a7;
+		text-decoration: none;
+	}
+	a:hover {
+		color: #208799;
+	}
+
+	td.dl-link {
+		height: 160px;
+		text-align: center;
+		font-size: 22px;
+	}
+
+	.layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		        0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+		        5px 5px 0 0px #fff, /* The second layer */
+		        5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+		        10px 10px 0 0px #fff, /* The third layer */
+		        10px 10px 1px 1px rgba(0,0,0,0.35), /* The third layer shadow */
+		        15px 15px 0 0px #fff, /* The fourth layer */
+		        15px 15px 1px 1px rgba(0,0,0,0.35), /* The fourth layer shadow */
+		        20px 20px 0 0px #fff, /* The fifth layer */
+		        20px 20px 1px 1px rgba(0,0,0,0.35), /* The fifth layer shadow */
+		        25px 25px 0 0px #fff, /* The fifth layer */
+		        25px 25px 1px 1px rgba(0,0,0,0.35); /* The fifth layer shadow */
+		margin-left: 10px;
+		margin-right: 45px;
+	}
+
+
+	.layered-paper { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		        0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+		        5px 5px 0 0px #fff, /* The second layer */
+		        5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+		        10px 10px 0 0px #fff, /* The third layer */
+		        10px 10px 1px 1px rgba(0,0,0,0.35); /* The third layer shadow */
+		margin-top: 5px;
+		margin-left: 10px;
+		margin-right: 30px;
+		margin-bottom: 5px;
+	}
+
+	.vert-cent {
+		position: relative;
+	    top: 50%;
+	    transform: translateY(-50%);
+	}
+
+	hr
+	{
+		border: 0;
+		height: 1px;
+		background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+	}
+    table td, table td * {
+        vertical-align: top;
+    }
+	
+	#gzsl_result {
+		border-collapse: collapse;
+	}
+	
+	#gzsl_result th, #gzsl_result td {
+		padding: 5px 23px;
+	}
+	
+	#gzsl_result td {
+		text-align: center;
+		width: 30px;
+	}
+	
+	#zsl_result td {
+		text-align: center;
+		width: 30px;
+	}
+	
+	#zsl_result {
+		border-collapse: collapse;
+	}
+	
+	#zsl_result th, #zsl_result td {
+		padding: 5px 20px;
+	}
+	
+	.bottom {
+		border-bottom: 2px solid black;
+	}
+	
+	.top {
+		border-top: 2px solid black;
+	}
+	
+	.right {
+		border-right: 2px solid black;
+	}
+	
+	.gzsl_method {
+		border-left: 2px solid black;
+		border-right: 2px solid black;
+	}
+	
+	td.gzsl_head {
+		text-align: center;
+	}
+	
+	td.gzsl_method {
+		text-align: left;
+	}
+	
+	td.second_best {
+		color: blue;
+		font-weight: bold;
+	}
+	
+	td.best {
+		color: red;
+		font-weight: bold;
+	}
+	
+	caption {
+		caption-side: bottom;
+		text-align: left;
+		font-size: 14px;
+		font-style: italic;
+	}
+	
+</style>
+
+<html>
+  <head>
+	  <title>Generalized Zero-Shot Recognition based on Visually Semantic Embedding</title>
+      <meta property="og:title" content="Generalized Zero-Shot Recognition based on Visually Semantic Embedding" />
+	  <meta charset="utf-8">
+	  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML" async></script>
+  </head>
+
+  <body>
+    <br>
+          <center>
+          	<span style="font-size:32px">Generalized Zero-Shot Recognition based on Visually Semantic Embedding</span><br><br>
+	  		  <table align=center width=600px>
+	  			  <tr>
+	  	              <td align=center width=100px>
+	  					<center>
+	  						<span style="font-size:18px"><a href="">Pengkai Zhu</a></span>
+		  		  		</center>
+		  		  	  </td>
+	  	              <td align=center width=100px>
+	  					<center>
+	  						<span style="font-size:18px"><a href="https://scholar.google.com/citations?user=mWfsm1EAAAAJ&hl=en">Hanxiao Wang</a></span>
+		  		  		</center>
+		  		  	  </td>
+	  	              <td align=center width=100px>
+	  					<center>
+	  						<span style="font-size:18px"><a href="http://sites.bu.edu/data/">Venkatesh Saligrama</a></span>
+		  		  		</center>
+		  		  	  </td>
+			  </table><br>
+              <span style="font-size:18px">Electrical and Computer Engineering, Boston University</span><br>
+              <span style="font-size:18px">In CVPR 2019, Long Beach, CA</span><br><br>
+
+	  		  <table align=center width=300px>
+	  			  <tr>
+	  	              <td align=center width=50px>
+	  					<center>
+	  						<span style="font-size:22px"><a href='https://arxiv.org/abs/1811.07993'>[Paper]</a>
+		  		  		</center>
+		  		  	  </td>
+	  	              <td align=center width=50px>
+	  					<center>
+	  						<span style="font-size:22px">[GitHub]</a></span>
+							<span style="font-size:22px">(coming soon)</a></span>
+		  		  		</center>
+		  		  	  </td>
+			  </table>
+          </center>
+
+<!--   		  <br><br>
+		  <hr> -->
+
+  		  <br>
+  		  <table align=center width=850px>
+  			  <tr>
+  	              <td width=400px>
+  					<center>
+  	                	<a href="./images/fig1.jpg"><img class="" src = "./images/fig1.jpg" height="260px"></img></href></a><br>
+					</center>
+  	              </td>
+                </tr>
+  	              <td width=400px>
+                      <center>
+  	                	<span style="font-size:14px"><i>Our proposed visually semantic embedding is low dimensinoal and mirrors how semantic components score similarity of an attribute found in an instance in the visual domain, thus bridge the large gap between high-dim visual feature and semantic attributes.</i>
+                      <center>
+  	              </td>
+
+  		  </table>
+
+
+
+
+  		  <table align=center width=850px>
+	  		  <center><h1>Abstract</h1></center>
+	  		  <tr>
+	  		  	<td>
+	  		    </td>
+	  		  </tr>
+			</table>
+				We propose a novel Generalized Zero-Shot learning (GZSL) method that is agnostic to both unseen images and unseen semantic vectors during training. Prior works in this context propose to map high-dimensional visual features to the semantic domain, which we believe contributesto the semantic gap. To bridge the gap, we propose a novel low-dimensional embedding of visual instances that is “visually semantic.” Analogous to semantic data that quantifies the existence of an attribute in the presented instance, components of our visual embedding quantifies existence of a prototypical part-type in the presented instance. In parallel, as a thought experiment, we quantify the impact of noisy semantic data by utilizing a novel visual oracle to visually supervise a learner. These factors, namely semantic noise, visual-semantic gap and label noise lead us to propose a new graphical model for inference with  pairwise interactions between label, semantic data, and inputs. We tabulate results on a number of benchmark datasets demonstrating significant improvement in accuracy over state-of-art under both semantic and visual supervision.
+  		  <br><br>
+		  <hr>
+
+	  <!-- NETWORK ARCHITECTURE, TRY THE MODEL -->
+ 		<center><h1>Try our code</h1></center>
+		
+		Coming Soon...
+
+      	  <br>
+		  <hr>
+
+  		  <table align=center width=300px>
+	 		<center><h1>Paper</h1></center>
+  			  <tr>
+  	              <!--<td width=300px align=left>-->
+				  <td><a href='https://arxiv.org/abs/1811.07993'><img class="layered-paper-big" style="height:150px" src="./images/paper_thumb.png"/></a></td>
+				  <td><span style="font-size:18pt"><a href='https://arxiv.org/abs/1811.07993'><br>[Download] 2.4MB</a></td>
+  	              </td>
+
+              </tr>
+  		  </table>
+          <br><br>
+          <center><span style="font-size:16pt"><a href="./resources/bibtex.txt">[bibtex]</a></span></center>
+		  <br><br>
+
+          <hr>
+	 		<center><h1>Poster</h1></center>
+     		  <br>
+     		  Coming Soon...
+		  <br><br>
+		  <hr>
+		  
+	 		<center><h1>Latent Graphical Model</h1></center>
+			Here we illustrate the 3-node graphical model for generalized zero-shot learning we proposed:
+			<br><br><br>
+			<center>
+				<a href="./images/fig2.png"><img class="" src = "./images/fig2.png" height="200px"></img></href></a><br>
+			</center>
+		  <br><br>
+		    <p>The model is based on the key insight that the labels (\(Y\)) are not fully explained by either the input (\(X\)) or the semantic instance (\(S\)). A model that accounts for 3-way connection (\(S \leftrightarrow X, X \leftrightarrow Y, Y \leftrightarrow S\)) is needed in this case.		
+			</p>
+			<p>
+			The input is mapped into a finite set of feature vector parts, \( f_m(x) \in \Re^C \) indexed by discrete part-list, \( m \in [M] \). Each feature part is derived from a multi-attention model focusing on different regions in the image. Each featur part vector is then modeled as a C-dimensional Gaussian Mixture Model, \( f_m(x) \approx \sum_i \pi_x(k|m) {\cal N}(\theta_{k,m},\gamma^2 I)\), with isotropic components. The parameters \( \theta_k,m \in \Re^C \) are part and type dependent but shared among all instances. Each mixture component, \( \pi_x(k|m) \) represents the probability of type \(k\) conditioned on part \(m\). The total likelihood can thus be decomposed as:
+			$$
+			\begin{align} \label{eq.decomp}
+			\log(p(y,s\mid x)) &\propto \phi_{SX}(s,\Pi(x)) + \phi_{XY}([f_m(x)],y) \\ 
+			&+\phi_{YS}(y,s) - \sum_{m=1}^M L_{mix}(\Theta_m,\Pi_m(x), f_m(x))\\ 
+			&- L_{prt}([f_m(x)]) 
+			\end{align}
+			$$
+			where the last two terms model mixture likelihood and enforece diversity of multi-attention of parts, respectively.
+			</p>
+		  <hr>
+
+  		  <a name="bw_legacy"></a>
+  		  <center><h1>Experiments</h1></center>
+          Here we show comprehensive evaluation results for both gZSL and ZSL in our paper. Please see the paper for details on these experiments.<br>
+		  <center><h2>Generalized Zero-Shot Learning</h2></center>
+		  
+		  <center>
+		  <table id="gzsl_result">
+			<caption>gZSL learning results on CUB, AWA2 and aPY. ts = test classes (unseen classes), tr = train classes (seen classes), H = Harmonic mean. The accuracy is class-average Top-1 in %. The highest accuracy is in <span style="color:red">red</span> color and the second best is in <span style="color:blue">blue</span>.</caption>
+            <tr class="top">
+			  <th rowspan="2" class="gzsl_method">Methods</th>
+			  <th class="right" colspan="3">CUB</th>
+			  <th class="right" colspan="3">AWA2</th>
+			  <th class="right" colspan="3">APY</th>
+			</tr>
+			<tr class="bottom">
+			  <td class="gzsl_head">ts</td>
+			  <td class="gzsl_head">tr</td>
+			  <td class="gzsl_head right">H</td>
+			  <td class="gzsl_head">ts</td>
+			  <td class="gzsl_head">tr</td>
+			  <td class="gzsl_head right">H</td>
+			  <td class="gzsl_head">ts</td>
+			  <td class="gzsl_head">tr</td>
+			  <td class="gzsl_head right">H</td>
+			</tr>
+			<tr>
+				<td class="gzsl_method">SJE</td>
+				<td>23.5</td>
+				<td>59.2</td>
+				<td class="right">33.6</td>
+				<td>8.0</td>
+				<td>73.9</td>
+				<td class="right">14.4</td>
+				<td>3.7</td>
+				<td>55.7</td>
+				<td class="right">6.9</td>
+			</tr>
+			<tr>
+				<td class="gzsl_method">SAE</td>
+				<td>7.8</td>
+				<td>54.0</td>
+				<td class="right">13.6</td>
+				<td>1.1</td>
+				<td>82.2</td>
+				<td class="right">2.2</td>
+				<td>0.4</td>
+				<td>80.9</td>
+				<td class="right">0.9</td>
+			</tr>
+			<tr>
+				<td class="gzsl_method">SSE</td>
+				<td>8.5</td>
+				<td>46.9</td>
+				<td class="right">14.4</td>
+				<td>8.1</td>
+				<td>82.5</td>
+				<td class="right">14.8</td>
+				<td>0.2</td>
+				<td>78.9</td>
+				<td class="right">0.4</td>
+			</tr>
+			<tr>
+				<td class="gzsl_method">GFZSL</td>
+				<td>0.0</td>
+				<td>45.7</td>
+				<td class="right">0.0</td>
+				<td>2.5</td>
+				<td>80.1</td>
+				<td class="right">4.8</td>
+				<td>0.0</td>
+				<td class="second_best">83.3</td>
+				<td class="right">0.0</td>
+			</tr>
+			<tr>
+				<td class="gzsl_method">CONSE</td>
+				<td>1.6</td>
+				<td class="second_best">72.2</td>
+				<td class="right">3.1</td>
+				<td>0.5</td>
+				<td>90.6</td>
+				<td class="right">1.0</td>
+				<td>0.0</td>
+				<td class="best">91.2</td>
+				<td class="right">0.0</td>
+			</tr>
+			<tr>
+				<td class="gzsl_method">ALE</td>
+				<td>23.7</td>
+				<td>62.8</td>
+				<td class="right">34.4</td>
+				<td>14.0</td>
+				<td>81.8</td>
+				<td class="right">23.9</td>
+				<td>4.6</td>
+				<td>73.7</td>
+				<td class="right">8.7</td>
+			</tr>
+			<tr>
+				<td class="gzsl_method">SYNC</td>
+				<td>11.5</td>
+				<td>70.9</td>
+				<td class="right">19.8</td>
+				<td>10.0</td>
+				<td>90.5</td>
+				<td class="right">18.0</td>
+				<td>7.4</td>
+				<td>66.3</td>
+				<td class="right">13.3</td>
+			</tr>
+			<tr>
+				<td class="gzsl_method">DEVISE</td>
+				<td>23.8</td>
+				<td>53.0</td>
+				<td class="right">32.8</td>
+				<td>17.1</td>
+				<td>74.7</td>
+				<td class="right">27.8</td>
+				<td>4.9</td>
+				<td>76.9</td>
+				<td class="right">9.2</td>
+			</tr>
+			<tr>
+				<td class="gzsl_method">PSRZSL</td>
+				<td>24.6</td>
+				<td>54.3</td>
+				<td class="right">33.9</td>
+				<td>20.7</td>
+				<td>73.8</td>
+				<td class="right">32.3</td>
+				<td>13.5</td>
+				<td>51.4</td>
+				<td class="right">21.4</td>
+			</tr>
+			<tr>
+				<td class="gzsl_method">SP-AEN</td>
+				<td class="second_best">34.7</td>
+				<td>70.6</td>
+				<td class="right">46.6</td>
+				<td>23.3</td>
+				<td class="second_best">90.9</td>
+				<td class="right">37.1</td>
+				<td>13.7</td>
+				<td>63.4</td>
+				<td class="right">22.6</td>
+			</tr>
+			<tr class="top">
+				<td class="gzsl_method" style="font-weight:bold">Ours(S)</td>
+				<td>33.4</td>
+				<td class="best">87.5</td>
+				<td class="second_best right">48.4</td>
+				<td class="second_best">41.6</td>
+				<td class="best">91.3</td>
+				<td class="second_best right">57.2</td>
+				<td class="second_best">24.5</td>
+				<td>72.0</td>
+				<td class="second_best right">36.6</td>
+			</tr>
+			<tr class="bottom">
+				<td class="gzsl_method" style="font-weight:bold">Ours(\(\Pi\))</td>
+				<td class="best">39.5</td>
+				<td>68.9</td>
+				<td class="best right">50.2</td>
+				<td class="best">45.6</td>
+				<td>88.7</td>
+				<td class="best right">60.2</td>
+				<td class="best">43.6</td>
+				<td>78.7</td>
+				<td class="best right">56.2</td>
+			</tr>
+		  </table>
+		  </center>
+		  
+		<br>
+		<center><h2>Zero-Shot Learning</h2></center>
+		
+		<center>
+		<table id="zsl_result">
+			<caption>Zero shot learning results on CUB, AWA2 and aPY. SS = standard split, PS = proposed split. The results are class-average Top-1 accuracy in %. The highest accuracy is in <span style="color:red">red</span> color and the second best is in <span style="color:blue">blue</span>.</caption>
+			<tr class="top">
+				<th rowspan="2" class="gzsl_method">Methods</th>
+				<th class="right" colspan="2">CUB</th>
+				<th class="right" colspan="2">AWA2</th>
+				<th class="right" colspan="2">aPY</th>
+			</tr>
+			<tr class="bottom">
+				<td class="gzsl_head">SS</td>
+				<td class="gzsl_head right">PS</td>
+				<td class="gzsl_head">SS</td>
+				<td class="gzsl_head right">PS</td>
+				<td class="gzsl_head">SS</td>
+				<td class="gzsl_head right">PS</td>
+			</tr>
+			<tr>
+				<td class="gzsl_method">SJE</td>
+				<td>55.3</td>
+				<td class="right">53.9</td>
+				<td>69.5</td>
+				<td class="right">61.9</td>
+				<td>32.0</td>
+				<td class="right">32.9</td>
+			</tr>
+			<tr>
+				<td class="gzsl_method">SAE</td>
+				<td>33.4</td>
+				<td class="right">33.3</td>
+				<td>80.7</td>
+				<td class="right">54.1</td>
+				<td>8.3</td>
+				<td class="right">8.3</td>
+			</tr>
+			<tr>
+				<td class="gzsl_method">SSE</td>
+				<td>43.7</td>
+				<td class="right">43.9</td>
+				<td>67.5</td>
+				<td class="right">61.0</td>
+				<td>31.1</td>
+				<td class="right">34.0</td>
+			</tr>
+			<tr>
+				<td class="gzsl_method">GFZSL</td>
+				<td>53.0</td>
+				<td class="right">49.3</td>
+				<td>79.3</td>
+				<td class="right">63.8</td>
+				<td>51.3</td>
+				<td class="right">38.4</td>
+			</tr>
+			<tr>
+				<td class="gzsl_method">CONSE</td>
+				<td>36.7</td>
+				<td class="right">34.3</td>
+				<td>67.9</td>
+				<td class="right">44.5</td>
+				<td>25.9</td>
+				<td class="right">26.9</td>
+			</tr>
+			<tr>
+				<td class="gzsl_method">ALE</td>
+				<td>53.2</td>
+				<td class="right">54.9</td>
+				<td>80.3</td>
+				<td class="right">62.5</td>
+				<td>30.9</td>
+				<td class="right">39.7</td>
+			</tr>
+			<tr>
+				<td class="gzsl_method">SYNC</td>
+				<td>54.1</td>
+				<td class="right">55.6</td>
+				<td>71.2</td>
+				<td class="right">46.6</td>
+				<td>39.7</td>
+				<td class="right">23.9</td>
+			</tr>
+			<tr>
+				<td class="gzsl_method">DEVISE</td>
+				<td>53.2</td>
+				<td class="right">52.0</td>
+				<td>68.6</td>
+				<td class="right">59.7</td>
+				<td>35.4</td>
+				<td class="right">39.8</td>
+			</tr>
+			<tr>
+				<td class="gzsl_method">PSRZSL</td>
+				<td>-</td>
+				<td class="right">56.0</td>
+				<td>-</td>
+				<td class="right">63.8</td>
+				<td>-</td>
+				<td class="right">38.4</td>
+			</tr>
+			<tr>
+				<td class="gzsl_method">SP-AEN</td>
+				<td>-</td>
+				<td class="right">55.4</td>
+				<td>-</td>
+				<td class="right">58.5</td>
+				<td>-</td>
+				<td class="right">24.1</td>
+			</tr>
+			<tr class="top">
+				<td class="gzsl_method" style="font-weight:bold">Ours(S)</td>
+				<td class="second_best">63.7</td>
+				<td class="second_best right">66.7</td>
+				<td class="second_best">90.7</td>
+				<td class="second_best right">69.1</td>
+				<td class="second_best">52.1</td>
+				<td class="second_best right">50.1</td>
+			</tr>
+			<tr class="bottom">
+				<td class="gzsl_method" style="font-weight:bold">Ours(\(\Pi\))</td>
+				<td class="best">68.8</td>
+				<td class="best right">71.9</td>
+				<td class="best">92.4</td>
+				<td class="best right">84.4</td>
+				<td class="best">54.4</td>
+				<td class="best right">65.4</td>
+			</tr>
+		</table>		
+		</center>
+		
+		<hr>
+		<center><h1>Datasets</h1></center>
+		<table align=center width=800px>
+	  			  <tr>
+	  	              <td align=center width=50px>
+	  					<center>
+	  						<span style="font-size:22px"><a href='https://www.mpi-inf.mpg.de/departments/computer-vision-and-multimodal-computing/research/zero-shot-learning/zero-shot-learning-the-good-the-bad-and-the-ugly/'>[Protocal]</a>
+		  		  		</center>
+		  		  	  </td>
+					  <td align=center width=100px>
+	  					<center>
+	  						<span style="font-size:22px">[Pytorch Dataset]</span>
+							<span style="font-size:22px">(coming soon)</span>
+		  		  		</center>
+		  		  	  </td>
+	  	              <td align=center width=50px>
+	  					<center>
+	  						<span style="font-size:22px"><a href='http://www.vision.caltech.edu/visipedia/CUB-200-2011.html'>[CUB]</a></span>
+		  		  		</center>
+		  		  	  </td>
+					  <td align=center width=50px>
+						<center>
+							<span style="font-size:22px"><a href="https://cvml.ist.ac.at/AwA2/">[AWA2]</a></span>
+						</center>
+					  </td>
+					  <td align=center width=50px>
+						<center>
+							<span style="font-size:22px"><a href="http://vision.cs.uiuc.edu/attributes/">[aPY]</a></span>
+						</center>
+					  </td>
+			  </table>
+  	  	<hr>
+  		  <table align=center width=1100px>
+  			  <tr>
+  	              <td>
+  					<left>
+	  		  <center><h1>Acknowledgements</h1></center>
+					This work was supported by the Office of Naval Research Grant N0014-18-1-2257, NGA-NURI HM1582-09-1-0037 and the U.S. Department of Homeland Security, Science and Technology Directorate, Office of University Programs, under Grant 2013-ST-061-ED0001.
+			</left>
+		</td>
+			 </tr>
+		</table>
+
+		<br><br>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-24665197-6', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>
