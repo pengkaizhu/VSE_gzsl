@@ -1,0 +1,6 @@
+@inproceedings{zhu2018generalized,
+    title={Generalized Zero-Shot Recognition based on Visually Semantic Embedding},
+    author={Pengkai Zhu and Hanxiao Wang and Venkatesh Saligrama},
+    booktitle={The IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+    year={2019}
+}
